@@ -10,10 +10,6 @@
                     </div>
                     <img src="../assets/img/workflow.png" class="user-avator" alt />
                 </el-card>
-
-
-
-
                 <el-card shadow="hover" style="height:252px;">
                     <template #header>
                         <div class="clearfix">

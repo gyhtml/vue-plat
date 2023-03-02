@@ -71,6 +71,7 @@ import VueCropper from "vue-cropperjs";
 import "cropperjs/dist/cropper.css";
 import defaultSrc from "../assets/img/img.jpg";
 export default {
+    
     name: "upload",
     components: {
         VueCropper,
