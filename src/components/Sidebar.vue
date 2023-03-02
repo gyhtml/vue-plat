@@ -85,7 +85,7 @@ export default {
     display: block;
     position: absolute;
     left: 0;
-    top: 70px;
+    /* top: 70px; */
     bottom: 0;
     overflow-y: scroll;
 }
@@ -95,7 +95,8 @@ export default {
 }
 
 .sidebar-el-menu:not(.el-menu--collapse) {
-    width: 250px;
+    /* width: 250px; */
+    width: 0px;
 }
 
 .sidebar>ul {
