@@ -1,29 +1,28 @@
 <template>
-    <div class="container">
-      <div class="content-title">Step 1: Input sequences in fasta format</div>
-      <div>
-        Paste your sequences with Fasta format below(click
-        <el-button type="text" @click="centerDialogVisible = true">
-          here
-        </el-button>
-       <!-- <el-link type="primary" style="font-size: 16px">here</el-link> -->
-        for example)
-      </div>
-
-      <el-dialog v-model="centerDialogVisible" title="Example" width="30%" :append-to-body="true">
-        <span> 一段示例序列 </span>
-        <template #footer>
-          <span class="dialog-footer">
-            <el-button @click="centerDialogVisible = false">Cancel</el-button>
-            <el-button type="primary" @click="centerDialogVisible = false">
-              Confirm
-            </el-button>
-          </span>
-        </template>
-      </el-dialog>
-     
+  <div class="container">
+    <div class="content-title">Step 1: Input sequences in fasta format</div>
+    <div>
+      Paste your sequences with Fasta format below(click
+      <el-button type="text" @click="centerDialogVisible = true">
+        here
+      </el-button>
+      <!-- <el-link type="primary" style="font-size: 16px">here</el-link> -->
+      for example)
     </div>
- 
+
+    <el-dialog v-model="centerDialogVisible" title="Example" width="30%" :append-to-body="true">
+      <span> 一段示例序列 </span>
+      <template #footer>
+        <span class="dialog-footer">
+          <el-button @click="centerDialogVisible = false">Cancel</el-button>
+          <el-button type="primary" @click="centerDialogVisible = false">
+            Confirm
+          </el-button>
+        </span>
+      </template>
+    </el-dialog>
+
+  </div>
 </template>
 
 <script>
@@ -36,10 +35,10 @@ export default {
     VueCropper,
   },
   setup() {
-    
+
     const centerdialogVisible = ref(false);
-    return {  
-      centerdialogVisible,   
+    return {
+      centerdialogVisible,
     };
   },
 };
@@ -48,6 +47,7 @@ export default {
 .dialog-footer button:first-child {
   margin-right: 10px;
 }
+
 .content-title {
   font-weight: 400;
   line-height: 50px;

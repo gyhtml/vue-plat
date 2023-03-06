@@ -78,11 +78,11 @@ export default {
           name: "Contact",
           path: "/contact",
         },
-        {
-          id: 5,
-          name: "test",
-          path: "/test",
-        },
+        // {
+        //   id: 5,
+        //   name: "test",
+        //   path: "/test",
+        // },
       ],
       personSelected: 1, //当前选中的页面
 
@@ -155,7 +155,7 @@ export default {
 
 .btn-a {
   float: left;
-  width: 100px;
+  /* width: 100px; */
   line-height: 70px;
   margin-left: 100px;
   cursor: pointer;

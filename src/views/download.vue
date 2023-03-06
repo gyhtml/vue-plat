@@ -5,11 +5,12 @@
                 <el-col :span="24">
                     <el-card shadow="hover" class="mgb20">
                         <div class="user-info">
-                            <text style="font-size: 30px;">Please note:
+                            <text style="font-size: 28px;">Please note:
                                 Propep is ONLY freely available for academic research.<br>
                                 And for commercial usage, please
                                 contact us.<br>
-                                Please download by clicking the link below:
+
+
                             </text>
                         </div>
                     </el-card>
@@ -20,6 +21,7 @@
         </div>
 
         <div class="container">
+            <text style="font-size: 24px; font-weight: bold;">Please download by clicking the link below:</text>
             <div class="content-title">Dataset</div>
             <el-row style="background-color: white;">
                 <el-form ref="form" class="form-data">
@@ -33,16 +35,15 @@
                         <el-form-item>
                             <el-button type="text" @click="download" class="button1">download</el-button>
                         </el-form-item></el-col>
-
                 </el-form>
-
             </el-row>
+
             <el-row style="background-color: white;">
                 <el-form ref="form" class="form-data">
                     <el-col>
                         <el-form-item>
                             <span slot="label">
-                                <span class="formStar">The training set:</span>
+                                <span class="formStar">The testing set:</span>
 
                             </span>
                         </el-form-item></el-col>
@@ -50,14 +51,28 @@
                         <el-form-item>
                             <el-button type="text" @click="download" class="button1">download</el-button>
                         </el-form-item></el-col>
+                </el-form>
+            </el-row>
+            <el-row style="background-color: white;">
+                <el-form ref="form" class="form-data">
+                    <el-col>
+                        <el-form-item>
+                            <span slot="label">
+                                <span class="formStar">GITHUB:</span>
+
+                            </span>
+                        </el-form-item></el-col>
+                    <el-col>
+                        <el-form-item>
+                            <el-button type="text" @click="download" class="button1">Propep</el-button>
+                        </el-form-item></el-col>
 
                 </el-form>
 
             </el-row>
 
-
-
         </div>
+
     </div>
 </template>
 
