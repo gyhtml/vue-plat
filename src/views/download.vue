@@ -5,17 +5,13 @@
                 <el-col :span="24">
                     <el-card shadow="hover" class="mgb20">
                         <div class="user-info">
-
                             <text style="font-size: 30px;">Please note:
-
                                 Propep is ONLY freely available for academic research.<br>
                                 And for commercial usage, please
                                 contact us.<br>
-
-                                Please download by clicking the link below:</text>
-
+                                Please download by clicking the link below:
+                            </text>
                         </div>
-
                     </el-card>
                 </el-col>
 
@@ -71,7 +67,7 @@ import VueCropper from "vue-cropperjs";
 import "cropperjs/dist/cropper.css";
 import defaultSrc from "../assets/img/img.jpg";
 export default {
-    
+
     name: "upload",
     components: {
         VueCropper,

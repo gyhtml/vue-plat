@@ -6,31 +6,11 @@
       <i v-else class="el-icon-s-unfold"></i>
     </div> -->
     <div class="logo" style="margin-left: 30px; font-size: 30px; font-weight: bold;">Propep</div>
+
     <div v-for="item in HeaderList" :key="item.id" @click="changePerson(item)" class="btn-a">
       {{ item.name }}
     </div>
 
-    <div class="header-right">
-      <div class="header-user-con">
-        <!-- 用户头像 -->
-        <!-- <div class="user-avator">
-                    <img src="../assets/img/img.jpg" />
-                </div> -->
-        <!-- 用户名下拉菜单 -->
-        <!-- <el-dropdown class="user-name" trigger="click" @command="handleCommand">
-          <span class="el-dropdown-link">
-            {{ username }}
-            <i class="el-icon-caret-bottom"></i>
-          </span>
-          <template #dropdown>
-            <el-dropdown-menu>
-              <el-dropdown-item command="user">个人中心</el-dropdown-item>
-              <el-dropdown-item divided command="loginout">退出登录</el-dropdown-item>
-            </el-dropdown-menu>
-          </template>
-        </el-dropdown> -->
-      </div>
-    </div>
   </div>
 </template>
 
@@ -85,7 +65,7 @@ export default {
         },
         {
           id: 2,
-          name: "Server",
+          name: "Serve",
           path: "/server",
         },
         {
@@ -139,6 +119,8 @@ export default {
   },
 };
 </script>
+
+
 <style scoped>
 .header {
   position: relative;
@@ -173,9 +155,9 @@ export default {
 
 .btn-a {
   float: left;
-  width: 50px;
+  width: 100px;
   line-height: 70px;
-  margin-left: 90px;
+  margin-left: 100px;
   cursor: pointer;
   /* cursor:pointer;//鼠标悬停时变小手 */
 }

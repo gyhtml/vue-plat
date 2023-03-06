@@ -10,12 +10,14 @@
                             <span>{{ item.title }}</span>
                         </template>
                         <template v-for="subItem in item.subs">
+
                             <el-submenu v-if="subItem.subs" :index="subItem.index" :key="subItem.index">
                                 <template #title>{{ subItem.title }}</template>
                                 <el-menu-item v-for="(threeItem, i) in subItem.subs" :key="i" :index="threeItem.index">
                                     {{ threeItem.title }}</el-menu-item>
                             </el-submenu>
-                            <el-menu-item v-else :index="subItem.index" :key="subItem.index">{{ subItem.title }}
+                            <!-- vue3 中 if 与 else 的 key 不能相同 -->
+                            <el-menu-item v-else :index="subItem.index" :key="subItem.index + 1">{{ subItem.title }}
                             </el-menu-item>
                         </template>
                     </el-submenu>

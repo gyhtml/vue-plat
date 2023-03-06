@@ -5,7 +5,7 @@
                 <el-card shadow="hover" class="mgb20">
                     <div class="user-info">
 
-                        <text style="font-size: 30px;">Propep</text>
+                        <text style="font-size: 40px; font-weight: bold;">Propep</text>
 
                     </div>
                     <img src="../assets/img/workflow.png" class="user-avator" alt />
