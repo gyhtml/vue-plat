@@ -5,25 +5,19 @@
       <i v-if="!collapse" class="el-icon-s-fold"></i>
       <i v-else class="el-icon-s-unfold"></i>
     </div> -->
-    <div class="logo">Propep</div>
-    <div
-      v-for="item in HeaderList"
-      :key="item.id"
-      @click="changePerson(item)"
-      class="btn-a"
-    >
+    <div class="logo" style="margin-left: 30px; font-size: 30px; font-weight: bold;">Propep</div>
+    <div v-for="item in HeaderList" :key="item.id" @click="changePerson(item)" class="btn-a">
       {{ item.name }}
     </div>
 
     <div class="header-right">
       <div class="header-user-con">
-
         <!-- 用户头像 -->
         <!-- <div class="user-avator">
                     <img src="../assets/img/img.jpg" />
                 </div> -->
         <!-- 用户名下拉菜单 -->
-        <el-dropdown class="user-name" trigger="click" @command="handleCommand">
+        <!-- <el-dropdown class="user-name" trigger="click" @command="handleCommand">
           <span class="el-dropdown-link">
             {{ username }}
             <i class="el-icon-caret-bottom"></i>
@@ -31,16 +25,15 @@
           <template #dropdown>
             <el-dropdown-menu>
               <el-dropdown-item command="user">个人中心</el-dropdown-item>
-              <el-dropdown-item divided command="loginout"
-                >退出登录</el-dropdown-item
-              >
+              <el-dropdown-item divided command="loginout">退出登录</el-dropdown-item>
             </el-dropdown-menu>
           </template>
-        </el-dropdown>
+        </el-dropdown> -->
       </div>
     </div>
   </div>
 </template>
+
 <script>
 import { computed, onMounted } from "vue";
 import { useStore } from "vuex";
@@ -120,8 +113,8 @@ export default {
           //跳转路由
           path: item.path,
           query: {
-          date:new Date().getTime()
-        }
+            date: new Date().getTime()
+          }
         });
       },
     });
@@ -129,7 +122,7 @@ export default {
     const DataListRef = toRefs(dataList);
     //解决页面需要刷新显示问题
 
-   
+
     return {
       activeName: "first",
       username,
@@ -168,6 +161,7 @@ export default {
   width: 70px;
   line-height: 70px;
 }
+
 .tabs-a {
   position: absolute;
   left: 170px;
@@ -176,12 +170,13 @@ export default {
   height: 70px;
   color: #fff;
 }
+
 .btn-a {
   float: left;
   width: 50px;
   line-height: 70px;
   margin-left: 90px;
-  cursor:pointer;  
+  cursor: pointer;
   /* cursor:pointer;//鼠标悬停时变小手 */
 }
 
