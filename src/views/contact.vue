@@ -1,7 +1,9 @@
 <template>
     <div>
-        <h1>Contact</h1>
-        <p>Contact us!</p>
+        <div>
+            <h1>Contact</h1>
+            <p>Contact us!</p>
+        </div>
     </div>
 </template>
   

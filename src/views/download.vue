@@ -1,6 +1,6 @@
 <template>
     <div>
-        <div>
+        <div class="downloadtxt">
             <el-row :gutter="20">
                 <el-col :span="24">
                     <el-card shadow="hover" class="mgb20">
@@ -9,8 +9,6 @@
                                 Propep is ONLY freely available for academic research.<br>
                                 And for commercial usage, please
                                 contact us.<br>
-
-
                             </text>
                         </div>
                     </el-card>

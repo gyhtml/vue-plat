@@ -1,91 +1,72 @@
 <template>
-  <el-dialog
-    title="上传文件"
-    :close-on-click-modal="false"
-    @close="closeHandle"
-    :visible.sync="Uploadvisible"
-  ></el-dialog>
-
   <div>
-    <div>
-      <el-row :gutter="20">
-        <el-col :span="24">
-          <el-card shadow="hover" class="mgb20">
-            <div class="user-info">
-              <text style="font-size: 30px"
-                >Identification of protein-peptide binding residues</text
-              >
-            </div>
-          </el-card>
-        </el-col>
-      </el-row>
-    </div>
+    <el-dialog title="上传文件" :close-on-click-modal="false" @close="closeHandle" :visible.sync="Uploadvisible"></el-dialog>
 
-    <div class="container">
-      <div class="content-title">Step 1: Input sequences in fasta format</div>
+    <div>
       <div>
-        Paste your sequences with Fasta format below(click
-        <el-button type="text" @click="centerDialogVisible = true">
-          here
-        </el-button>
-        
-        <!-- <el-link type="primary" style="font-size: 16px">here</el-link> -->
-        for example)
+        <el-row :gutter="20">
+          <el-col :span="24">
+            <el-card shadow="hover" class="mgb20">
+              <div class="user-info">
+                <text style="font-size: 30px">Identification of protein-peptide binding residues</text>
+              </div>
+            </el-card>
+          </el-col>
+        </el-row>
       </div>
 
-      <el-dialog v-model="centerDialogVisible" title="Example" width="30%" :append-to-body="true">
-        <span> 一段示例序列 </span>
-        <template #footer>
-          <span class="dialog-footer">
-            <el-button @click="centerDialogVisible = false">Cancel</el-button>
-            <el-button type="primary" @click="centerDialogVisible = false">
-              Confirm
-            </el-button>
-          </span>
-        </template>
-      </el-dialog>
-      <el-row>
-        <el-col :span="16" class="text1">
-          <textarea
-            name="seq"
-            id="seq"
-            rows="10"
-            v-model="text"
-            style="height: 200px; width: 700px; resize: none"
-          ></textarea>
-          <!-- <el-input
+      <div class="container">
+        <div class="content-title">Step 1: Input sequences in fasta format</div>
+        <div>
+          Paste your sequences with Fasta format below(click
+          <el-button type="text" @click="centerDialogVisible = true">
+            here
+          </el-button>
+
+          <!-- <el-link type="primary" style="font-size: 16px">here</el-link> -->
+          for example)
+        </div>
+
+        <el-dialog v-model="centerDialogVisible" title="Example" width="30%" :append-to-body="true">
+          <span> 一段示例序列 </span>
+          <template #footer>
+            <span class="dialog-footer">
+              <el-button @click="centerDialogVisible = false">Cancel</el-button>
+              <el-button type="primary" @click="centerDialogVisible = false">
+                Confirm
+              </el-button>
+            </span>
+          </template>
+        </el-dialog>
+        <el-row>
+          <el-col :span="16" class="text1">
+            <textarea name="seq" id="seq" rows="10" v-model="text"
+              style="height: 200px; width: 700px; resize: none"></textarea>
+            <!-- <el-input
           type="textarea"
           :rows="10"
           placeholder="请输入内容"
           v-model="textarea"
           style="height: 200px; width: 700px;"
         > </el-input>-->
-        </el-col>
+          </el-col>
 
-        <!-- 上传文件 -->
-        <el-col :span="6">
-          <el-upload
-            class="upload-demo"
-            accept=".fasta"
-            action="https://jsonplaceholder.typicode.com/posts/"
-            :on-change="handleChange"
-            :file-list="fileList"
-            :multiple="false"
-          >
-            <el-button size="small" type="primary" style="margin: 50px"
-              >点击上传</el-button
-            >
-            <div slot=" tip" class="el-upload__tip">
-              只能上传fasta文件，且不超过500kb
-            </div>
-          </el-upload>
-        </el-col>
-        <el-col :span="2"></el-col
-      ></el-row>
+          <!-- 上传文件 -->
+          <el-col :span="6">
+            <el-upload class="upload-demo" accept=".fasta" action="https://jsonplaceholder.typicode.com/posts/"
+              :on-change="handleChange" :file-list="fileList" :multiple="false">
+              <el-button size="small" type="primary" style="margin: 50px">点击上传</el-button>
+              <div slot=" tip" class="el-upload__tip">
+                只能上传fasta文件，且不超过500kb
+              </div>
+            </el-upload>
+          </el-col>
+          <el-col :span="2"></el-col></el-row>
 
-      <div class="content-title">Step 2</div>
-      <div>
-        <el-button class="button-submit" type="primary">submit</el-button>
+        <div class="content-title">Step 2</div>
+        <div>
+          <el-button class="button-submit" type="primary">submit</el-button>
+        </div>
       </div>
     </div>
   </div>
@@ -167,6 +148,7 @@ export default {
 .dialog-footer button:first-child {
   margin-right: 10px;
 }
+
 .content-title {
   font-weight: 400;
   line-height: 50px;
