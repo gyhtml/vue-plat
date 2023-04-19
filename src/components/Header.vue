@@ -1,10 +1,6 @@
 <template>
   <div class="header">
-    <!-- 折叠按钮 -->
-    <!-- <div class="collapse-btn" @click="collapseChage">
-      <i v-if="!collapse" class="el-icon-s-fold"></i>
-      <i v-else class="el-icon-s-unfold"></i>
-    </div> -->
+
     <div class="logo" style="margin-left: 30px; font-size: 30px; font-weight: bold;">Propep</div>
 
     <div v-for="item in HeaderList" :key="item.id" @click="changePerson(item)" class="btn-a">
@@ -158,6 +154,7 @@ export default {
   /* width: 100px; */
   line-height: 70px;
   margin-left: 100px;
+  font-weight: bold;
   cursor: pointer;
   /* cursor:pointer;//鼠标悬停时变小手 */
 }
@@ -179,7 +176,7 @@ export default {
   font-size: 24px;
 }
 
-.btn-bell,
+
 .btn-fullscreen {
   position: relative;
   width: 30px;

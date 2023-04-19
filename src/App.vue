@@ -1,5 +1,13 @@
 <template>
-    <router-view />
+    <div>
+        <router-view />
+        <!-- 加入空白占位符 -->
+        <div style="height: 1000px;"></div>
+        <!-- 底部版权栏 -->
+        <footer>
+            <p style="color: #fff;">&copy; 2023 ProPep. All rights reserved.</p>
+        </footer>
+    </div>
 </template>
 
 <script>
