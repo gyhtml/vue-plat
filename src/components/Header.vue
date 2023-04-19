@@ -1,7 +1,11 @@
 <template>
   <div class="header">
 
-    <div class="logo" style="margin-left: 30px; font-size: 30px; font-weight: bold;">Propep</div>
+    <router-link to="/">
+      <div class="logo" style="margin-left: 30px; font-size: 30px; font-weight: bold; color: white;">
+        Propep
+      </div>
+    </router-link>
 
     <div v-for="item in HeaderList" :key="item.id" @click="changePerson(item)" class="btn-a">
       {{ item.name }}
@@ -29,10 +33,7 @@ export default {
 
     const store = useStore();
     const collapse = computed(() => store.state.collapse);
-    // 侧边栏折叠
-    const collapseChage = () => {
-      store.commit("handleCollapse", !collapse.value);
-    };
+
 
     onMounted(() => {
       if (document.body.clientWidth < 1500) {
@@ -42,14 +43,6 @@ export default {
 
     // 用户名下拉菜单选择事件
     const router = useRouter();
-    const handleCommand = (command) => {
-      if (command == "loginout") {
-        localStorage.removeItem("ms_username");
-        router.push("/login");
-      } else if (command == "user") {
-        router.push("/user");
-      }
-    };
     //页面跳转
     const dataList = reactive({
       HeaderList: [
@@ -103,9 +96,6 @@ export default {
       activeName: "first",
       username,
       message,
-      collapse,
-      collapseChage,
-      handleCommand,
       // home,
       // server,
       // download,
@@ -125,37 +115,26 @@ export default {
   height: 70px;
   font-size: 22px;
   color: #fff;
-}
-
-.collapse-btn {
-  float: left;
-  padding: 0 21px;
-  cursor: pointer;
-  line-height: 70px;
+  display: flex;
+  /* justify-content: flex-end; */
+  /* align-items: center;s */
 }
 
 .header .logo {
   float: left;
   width: 70px;
   line-height: 70px;
-}
-
-.tabs-a {
-  position: absolute;
-  left: 170px;
-  top: -5px;
-  /* width: 70px; */
-  height: 70px;
-  color: #fff;
+  cursor: pointer;
 }
 
 .btn-a {
   float: left;
   /* width: 100px; */
   line-height: 70px;
-  margin-left: 100px;
+  margin-left: 150px;
   font-weight: bold;
   cursor: pointer;
+
   /* cursor:pointer;//鼠标悬停时变小手 */
 }
 
@@ -170,58 +149,11 @@ export default {
   align-items: center;
 }
 
-.btn-fullscreen {
-  transform: rotate(45deg);
-  margin-right: 5px;
-  font-size: 24px;
-}
-
-
-.btn-fullscreen {
-  position: relative;
-  width: 30px;
-  height: 30px;
-  text-align: center;
-  border-radius: 15px;
-  cursor: pointer;
-}
-
-.btn-bell-badge {
-  position: absolute;
-  right: 0;
-  top: -2px;
-  width: 8px;
-  height: 8px;
-  border-radius: 4px;
-  background: #f56c6c;
-  color: #fff;
-}
-
-.btn-bell .el-icon-bell {
-  color: #fff;
-}
-
-.user-name {
-  margin-left: 10px;
-}
-
-.user-avator {
-  margin-left: 20px;
-}
-
 .user-avator img {
   display: block;
   width: 40px;
   height: 40px;
   border-radius: 50%;
 }
-
-.el-dropdown-link {
-  color: #fff;
-  cursor: pointer;
-}
-
-.el-dropdown-menu__item {
-  text-align: center;
-}
 </style>
+  

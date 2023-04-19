@@ -18,14 +18,10 @@
       <div class="container">
         <div class="content-title">Step 1: Input sequences in fasta format</div>
         <div>
-          <p style="font-size: 18px;">Paste your sequences with Fasta format below(click
-            <el-button type="text" @click="centerDialogVisible = true" style="font-size: 18px;">
-              here
-            </el-button>
-            <!-- <el-link type="primary" style="font-size: 16px">here</el-link> -->
-            for example)
-          </p>
-
+          <!-- 点击出现示例序列 -->
+          <p style="font-size: 18px;">Paste your sequences with Fasta format below(click <span @click="setExample"
+              style="color:skyblue">here</span>
+            for example)</p>
         </div>
 
         <el-dialog v-model="centerDialogVisible" title="Example" width="30%" :append-to-body="true">
@@ -39,14 +35,13 @@
             </span>
           </template>
         </el-dialog>
+
         <el-row>
           <el-col :span="16" class="text1">
-            <textarea name="seq" id="seq" rows="10" v-model="text"
+            <!-- 定义文本框 -->
+            <textarea id="fasta" rows="10" v-model="fasta_input"
               style="height: 200px; width: 700px; resize: none ;font-size: 18px; "></textarea>
-            <!-- <el-input type="textarea" :rows="10" placeholder="请输入内容" v-model="textarea"
-              style="height: 200px; width: 700px;" font-size> </el-input> -->
           </el-col>
-
           <!-- 上传文件 -->
           <el-col :span="6">
             <el-upload class="upload-demo" accept=".fasta" action="https://jsonplaceholder.typicode.com/posts/"
@@ -57,11 +52,13 @@
               </div>
             </el-upload>
           </el-col>
-          <el-col :span="2"></el-col></el-row>
+          <el-col :span="2"></el-col>
+        </el-row>
 
+        <!-- 提交fasta -->
         <div class="content-title">Step 2: Submit your sequences </div>
         <div>
-          <el-button class="button-submit" type="primary">submit</el-button>
+          <el-button class="button-submit" type="primary" @click="submitFasta">submit</el-button>
         </div>
       </div>
     </div>
@@ -73,6 +70,7 @@ import { ref } from "vue";
 import VueCropper from "vue-cropperjs";
 import "cropperjs/dist/cropper.css";
 import defaultSrc from "../assets/img/img.jpg";
+import axios from 'axios';
 export default {
   name: "upload",
   components: {
@@ -84,8 +82,18 @@ export default {
     const dialogVisible = ref(false);
     const centerdialogVisible = ref(false);
     const cropper = ref(null);
+    const fasta_input = ref('');
     //let centerdialogVisible = ref(false)
-
+    const setExample = () => {
+      fasta_input.value = '>1abtA\nIVCHTTATSPISAVTCPPGENLCYRKMWCDAFCSSRGKVVELGCAATCPSKKPYEEVTCCSTDKCNPHPKQRPG';
+    };
+    const submitFasta = () => {
+      axios.post('/api/submit_fasta', { fasta: fasta_input.value }).then((response) => {
+        console.log(response);
+      }).catch((error) => {
+        console.log(error);
+      });
+    };
     const setImage = (e) => {
       const file = e.target.files[0];
       if (!file.type.includes("image/")) {
@@ -118,7 +126,9 @@ export default {
       cropImage,
       cancelCrop,
       centerdialogVisible,
-
+      fasta_input,
+      setExample,
+      submitFasta,
       fileList: [
         {
           name: "1.fasta",
@@ -130,15 +140,55 @@ export default {
         },
       ],
     };
+
+
+
+
   },
 
   // 取最后三个文件
   methods: {
+
     handleChange(file, fileList) {
       this.fileList = fileList.slice(-3);
     },
+
+    submitFasta() {
+      // Send an AJAX request to the server
+      axios({
+        method: 'post',
+        url: 'your_python_file.py',
+        headers: {
+          'Content-Type': 'application/json',
+          'X-Requested-With': 'XMLHttpRequest'
+        },
+        data: {
+          fasta_input: this.fasta_input
+        }
+      })
+        .then(response => {
+          // Handle the response from the server
+          console.log(response.data);
+        })
+        .catch(error => {
+          // Handle any errors
+          console.log(error);
+        });
+    }
+
   },
+
+  // methods: {
+  //   showText(seq) {
+  //     this.text = seq + '\n';
+  //   },
+  // }
+
+
+
 };
+
+
 </script>
 <style scoped>
 .dialog-footer button:first-child {
